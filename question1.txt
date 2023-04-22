@@ -1,0 +1,13 @@
+Explain what the simple List component does.
+
+ANSWER:
+
+The List component is a React functional component that renders a list of items with the ability to select a single item from the list. 
+
+It takes an array of items as a prop, where each item is an object containing a text property. It uses the useState and useEffect hooks to manage the selected index state of the list. 
+
+The SingleListItem component is a memoized functional component that renders a single item in the list. It takes four props: index, isSelected, onClickHandler, and text. It renders an li element with the background color set to green if it is selected or red if it is not selected. When the item is clicked, it calls the onClickHandler prop with the index of the item. 
+
+The List component maps over the array of items and renders a SingleListItem component for each item. It passes the index, isSelected, onClickHandler, and text props to the SingleListItem component. The isSelected prop is set to the selectedIndex state of the List component, which is initially null. When an item is clicked, the handleClick function updates the selectedIndex state to the index of the clicked item. 
+
+Overall, this List component provides a simple and reusable way to render a list of items with the ability to select a single item.

@@ -1,0 +1,19 @@
+What problems / warnings are there with code?
+
+ANSWER:
+
+--> problems                            
+
+=> The 'isSelected' prop in the 'SingleListItem' component is not being set correctly. It should be isSelected={selectedIndex === index} instead of isSelected={selectedIndex}. This is because 'isSelected' should be a boolean value that indicates whether the current item is selected, but in this code, it is being set to the selectedIndex value, which is either null or an index.
+
+=> 'setSelectedIndex' is not a function. It should be just const [selectedIndex, setSelectedIndex] = useState(); in the WrappedListComponent.
+
+=> The PropTypes for the items prop in the 'WrappedListComponent' is incorrect. It should be items: PropTypes.arrayOf(PropTypes.shape({text: PropTypes.string.isRequired})) instead of items: PropTypes.array(PropTypes.shapeOf({text: PropTypes.string.isRequired})).
+
+=> The 'onClickHandler' function in the 'SingleListItem' component is not properly wrapped in a function. Instead of onClick={onClickHandler(index)}, it should be onClick={() => onClickHandler(index)}. This is because onClickHandler should be a function that takes an argument, but in the given code, it is being called immediately with the index value.
+
+
+--> warnings
+
+=> While running the provided code the following warnings is coming:
+        "React Hook useEffect has a missing dependency: 'setSelectedIndex'. Either include it or remove the dependency array  react-hooks/exhaustive-deps"
